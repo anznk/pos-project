@@ -23,6 +23,11 @@ Resources:
           Properties:
             Path: /pointofsale/getitems
             Method: get
+        CreateOrder:
+          Type: Api
+          Properties:
+            Path: /pointofsale/createOrder
+            Method: post
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function

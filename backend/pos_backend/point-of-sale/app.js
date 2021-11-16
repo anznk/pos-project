@@ -15,19 +15,51 @@ let response;
  * 
  */
 exports.lambdaHandler = async (event, context) => {
-    try {
-        // const ret = await axios(url);
+    if (event.resource === "/pointofsale/getitems") {
         response = {
-            'statusCode': 200,
-            'body': JSON.stringify({
-                message: 'hello world',
-                // location: ret.data.trim()
-            })
+            statusCode: 200,
+            'body': JSON.stringify(getItems())
         }
-    } catch (err) {
-        console.log(err);
-        return err;
+    } else if (event.resource === "/pointofsale/createorder") {
+        response = {
+            statusCode: 200,
+            'body': JSON.stringify({}) 
+        }
+    }else{
+        try {
+            // const ret = await axios(url);
+            response = {
+                'statusCode': 200,
+                'body': JSON.stringify({
+                    message: 'hello world',
+                    
+                })
+            }
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
     }
-
     return response
 };
+
+function getItems(){
+    return {
+        "items": [
+            {
+                "id": "1",
+                "name": "Coca Cola",
+                "price": "1.00",
+                "quantity": "1",
+                "total": "1.00"
+            },
+            {
+                "id": "2",
+                "name": "Pepsi",
+                "price": "1.00",
+                "quantity": "1",
+                "total": "1.00"
+            }
+        ]
+    }
+}
