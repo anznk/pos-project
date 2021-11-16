@@ -4,5 +4,26 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {},
+	"launch": {
+		"configurations": [
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "API pos_backend:PointOfSaleFunction",
+				"invokeTarget": {
+					"target": "api",
+					"templatePath": "${workspaceFolder}/backend/pos_backend/template.yaml",
+					"logicalId": "PointOfSaleFunction"
+				},
+				"api": {
+					"path": "/",
+					"httpMethod": "get",
+					"payload": {
+						"json": {}
+					}
+				}
+			}
+		]
+	}
 }

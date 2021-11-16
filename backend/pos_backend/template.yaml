@@ -18,10 +18,10 @@ Resources:
       Handler: app.lambdaHandler
       Runtime: nodejs14.x
       Events:
-        HelloWorld:
+        Getitems:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /pos
+            Path: /pointofsale/getitems
             Method: get
 
 Outputs:
