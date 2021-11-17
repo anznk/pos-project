@@ -18,6 +18,7 @@ exports.lambdaHandler = async (event, context) => {
     if (event.resource === "/pointofsale/getitems") {
         response = {
             statusCode: 200,
+            headers: { "Access-Control-Allow-Origin": "*" },
             'body': JSON.stringify(getItems())
         }
     } else if (event.resource === "/pointofsale/createorder") {
