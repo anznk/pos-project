@@ -9,8 +9,6 @@ const GetItems = () => {
         .then(res => res.json())
         .then(data => {
             setPosts(data.items)
-            console.log("data1");
-            console.log("data", data);
         })
     },[])
 
