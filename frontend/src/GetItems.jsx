@@ -14,12 +14,19 @@ const GetItems = () => {
 
     return (
         <div>
+        <form >
             <ul>
                 {
-                    posts.map(post => <li key={post.id}>{post.name}</li>)
+                    posts.map(post => 
+                    <li key={post.id}>
+                        {post.name}
+                        <input type="number" min="0" max="30" />
+                    </li>
+                    )
                 }
             </ul>
-            
+            <input type="submit" value="submit" />
+        </form>
         </div>
     )
 }
