@@ -21,28 +21,24 @@ function getItems(){
     response = {
         statusCode: 200,
         headers: { "Access-Control-Allow-Origin": "*" },
-        'body': JSON.stringify(getItems())
+        'body': JSON.stringify(mockItems())
     }
 
     return response;
 }
 
-function getItems(){
+function mockItems(){
     return {
-        "items": [
+        items: [
             {
-                "id": "1",
-                "name": "Coca Cola",
-                "price": "1.00",
-                "quantity": "1",
-                "total": "1.00"
+                FII: 'UUID1',
+                name: 'Toast with eggs',
+                price: '9.89',
             },
             {
-                "id": "2",
-                "name": "Pepsi",
-                "price": "1.00",
-                "quantity": "1",
-                "total": "1.00"
+                DII: 'UUID1',
+                name: 'Pepsi',
+                price: '4.99',
             }
         ]
     }

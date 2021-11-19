@@ -51,7 +51,7 @@
 							"drinkitems":[
 									{
 										"DII": "UUID3", // DrinkItemIdentifier (DII)
-										"count": 1 
+										"count": 1 // Quantity
 									},
 									{
 										"DII": "UUID4",
