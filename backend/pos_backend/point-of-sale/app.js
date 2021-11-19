@@ -14,21 +14,17 @@ let response;
  * @returns {Object} object - API Gateway Lambda Proxy Output Format
  * 
  */
-exports.lambdaHandler = async (event, context) => {
+
+const handler = require('./handler')
+
+ exports.lambdaHandler = async (event, context) => {
+     
     if (event.resource === "/pointofsale/getitems") {
-        response = {
-            statusCode: 200,
-            headers: { "Access-Control-Allow-Origin": "*" },
-            'body': JSON.stringify(getItems())
-        }
+        response = handler.getItems()
     } else if (event.resource === "/pointofsale/createorder") {
-        response = {
-            statusCode: 200,
-            'body': JSON.stringify({}) 
-        }
+        response = handler.creatOrderHandler(event.body)
     }else{
         try {
-            // const ret = await axios(url);
             response = {
                 'statusCode': 200,
                 'body': JSON.stringify({
@@ -42,25 +38,4 @@ exports.lambdaHandler = async (event, context) => {
         }
     }
     return response
-};
-
-function getItems(){
-    return {
-        "items": [
-            {
-                "id": "1",
-                "name": "Coca Cola",
-                "price": "1.00",
-                "quantity": "1",
-                "total": "1.00"
-            },
-            {
-                "id": "2",
-                "name": "Pepsi",
-                "price": "1.00",
-                "quantity": "1",
-                "total": "1.00"
-            }
-        ]
-    }
 }

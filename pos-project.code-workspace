@@ -10,7 +10,7 @@
 			{
 				"type": "aws-sam",
 				"request": "direct-invoke",
-				"name": "API pos_backend:PointOfSaleFunction",
+				"name": "API pos_backend:getitems",
 				"invokeTarget": {
 					"target": "api",
 					"templatePath": "${workspaceFolder}/backend/pos_backend/template.yaml",
@@ -27,7 +27,44 @@
 			{
 				"type": "aws-sam",
 				"request": "direct-invoke",
-				"name": "API pos_backend:PointOfSaleFunction",
+				"name": "API pos_backend:createorder",
+				"invokeTarget": {
+					"target": "api",
+					"templatePath": "${workspaceFolder}/backend/pos_backend/template.yaml",
+					"logicalId": "PointOfSaleFunction"
+				},
+				"api": {
+					"path": "/pointofsale/createorder",
+					"httpMethod": "post",
+					"payload": {
+						"json": {
+							"fooditems":{
+								"foodItem":[
+									{
+										"FII":"UUID1", // FoodItemIdentifier (FII)
+										"count":1 // Quantity
+									},
+									{
+										"FII":"UUID2",
+										"count":4
+								}]},
+							"drinkitems":[
+									{
+										"DII": "UUID3", // DrinkItemIdentifier (DII)
+										"count": 1 
+									},
+									{
+										"DII": "UUID4",
+										"count": 1
+									}]
+								}
+						}
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "API pos_backend:root",
 				"invokeTarget": {
 					"target": "api",
 					"templatePath": "${workspaceFolder}/backend/pos_backend/template.yaml",
@@ -37,10 +74,12 @@
 					"path": "/",
 					"httpMethod": "get",
 					"payload": {
-						"json": {}
+						"json": {
+							
+							}
+						}
 					}
 				}
-			}
 		]
 	}
 }
