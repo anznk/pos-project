@@ -22,6 +22,9 @@ const FoodItems = () => {
                         <input type="number" min="0" max="30" />
                     </li>
                     )
+                    <h4>Custom </h4>
+                    <input type="text" value="" />
+                    <input type="number" min="0" max="30"  />
                 }
             </ul>
             <input type="submit" value="submit" />
